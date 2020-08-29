@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The Rasa Framework - Prakash</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">UrShop</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>The Rasa Framework ! Open source alternative to Dialogflow.</h1>
+            <h2 class="subheading">A guide to creating your own chatbot</h2>
+            <span class="meta">Posted by
+              <a href="#">Prakash</a>
+              on August 01, 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p>Rasa is the beautiful framework for the chatbots, Its easy to get into it before we get started with the beautiful part, we will discuss what Rasa does……</p>
+
+          <a href="https://rasa.com/">
+            <img class="img-fluid" src="img/rasa.png" alt="">
+          </a>
+          <span class="caption text-muted">The Rasa Framework</span>
+
+          <p>When you got installed with Rasa on your machine you can run the rasa command:</p>
+
+          <p class="command">rasa init</p>
+
+          <p>Rasa will make a series of files in the directory that you have chosen by using the rasa init command. In Rasa, we did not need the external server to run our model like dialogue flow it will run on your current folder you didn’t want to give your data to any of the external server to display the result. It’s a great advantage of using rasa.</p>
+
+          <h2 class="section-heading">The Assistant that we create with Rasa:</h2>
+
+          <p>There are many chatbots, that evolved in the evolution of chatbots. The first one is a rule-based chatbot, Rule-based chatbots are also referred to as decision-tree bots. As the name suggests, they use a series of defined rules. These rules are the basis for the types of problems the chatbot is familiar with and can deliver solutions for. Rule-based will fail when it comes to the main scenario that the Questions can be asked in the two or more different forms and, the one action or objects can be called with more words. It will make the bot fails in more scenarios.</p>
+
+          <blockquote class="blockquote">eg(cooked, barbecued, fried, grilled, heated, microwaved, poached, prepared, roasted, sauteed)</blockquote>
+
+          <p>The words mentioned above implies the same thing that food got cooked, but the AI wants to understand that all the words gives the same meaning that the food got cooked. There come to play the contextual learning produced by Rasa to helps the user the provide the synonym to every word the user uses and group them to the single meaning and make them move on the correct path.</p>
+
+          <p>Without taking too much we go into the main part of the blog “getting started with rasa”</p>
+
+          <p>while giving rasa init function it will get assign some files in your system, the files are:</p>
+
+          <img class="img-fluid" src="img/the-rasa-framework/folder-view.png" alt="">   
+          <span class="caption text-muted">Rasa generated files</span>
+
+          <p>Inside the data file comes the two file nlu.md file and stories.md nlu files have predicted questions and intent of the set of questions and entities that we want to get extracted from the question and stories file this file is the specialty of rasa come into play This stories file specifies how the conversation occurs and, it will learn the conversation flow. Rasa comes with the mood bot. It, allows us to edit from that.</p>
+
+          <p>Domain file, this is the file where we define the intent, entities, slots, and actions.</p>
+
+          <h2 class="section-heading">Actions:</h2>
+
+          <p>The actions are the reply message that the bot wants to be given to the user. There are three types of actions in rasa:</p>
+
+          <ol>
+            <li>utter_actions</li>
+            <li>custom_actions</li>
+            <li>default-actions</li>
+          </ol>
+
+          <h3 class="section-sub-heading">1.utter_actions</h3>
+
+          <p>utter_action, start with <span class="highlight">utter_</span>, just send a message to the user</p>
+
+          <p>To define an utterance action <span class="highlight">(ActionUtterTemplate)</span>, add an utterance template to the domain file that starts with utter_:</p>
+
+          <pre class="command"><strong>templates:</strong><br><strong>  utter_my_message:</strong> <br>   - "this is what I want my action to say!"</pre>
+
+          <p>It is conventional to start the name of an utterance action with utter_. If this prefix is missing, you can still use the template in your custom actions, but the template can not be directly predicted as its action. See Responses for more details.</p>
+
+          <p>If you use an external NLG service, you don’t need to specify the templates in the domain, but you still need to add the utterance names to the actions list of the domain.</p>
+
+          <h3 class="section-sub-heading">2.custom_actions</h3>
+
+          <p>An action can run any code you want. Custom actions can turn on the lights, add an event to a calendar, check a user’s bank balance, or anything else you can imagine.</p>
+
+          <p>Rasa will call an endpoint you can specify when a custom action is predicted. This endpoint should be a web server that reacts to this call, runs the code, and optionally returns information to modify the dialogue state.</p>
+
+          <p>To specify, your action server use the <span class="highlight">endpoints.yml:</span></p>
+
+          <pre class="command"><strong>action_endpoint:</strong><br><strong>  url:</strong>  https://localhost:5055/webhook"</pre>
+
+          <p>And pass it to the scripts using <span class="highlight">--endpoints endpoints.yml.</span></p>
+
+          <p>You can create an action server in node.js, .NET, Java, or any other language and define your actions there — but we provide a small python SDK to make development there even easier.</p>
+
+          <h3 class="section-sub-heading">Custom Actions Written in Python</h3>
+
+          <p>For actions written in python, we have a convenient SDK which starts this action server for you.</p>
+
+          <p>The only thing your action server needs to install is <span class="highlight">rasa-sdk:</span></p>
+
+          <p class="command">pip install rasa-sdk</p>
+
+          <h3 class="section-sub-heading">3.default_actions</h3>
+
+          <p class="highlight">action_listen</p>
+
+          <p>Stop predicting more actions and wait for user input.</p>
+
+          <p class="highlight">action_restart</p>
+
+          <p>Reset the whole conversation.</p>
+
+          <p class="highlight">action_default_fallback</p>
+
+          <p>Undo the last user message (as if the user did not send it and the bot did not react) and utter a message that the bot did not understand. See Fallback Actions.</p>
+
+          <p class="highlight">action_deactivate_form</p>
+
+          <p>Deactivate the active form and reset the requested slot.</p>
+
+          <p class="highlight">action_default_ask_affirmation</p>
+
+          <p>Ask the user to affirm their intent. It is suggested to overwrite this default action with a custom action to have more meaningful prompts.</p>
+
+          <p class="highlight">action_default_ask_rephrase</p>
+
+          <p>Ask the user to rephrase their intent.</p>
+
+          <p class="highlight">action_back</p>
+
+          <p>Undo the last user message (as if the user did not send it and the bot did not react). can be triggered during a conversation by entering <span class="highlight">/ba</span> if the MappingPolicy is included in the policy configuration.</p>
+
+          <p>Many more concepts are lined up wait and learn the interesting world of chatbot with “Rasa”</p>
+          <p>Until the explore our awesome bots on nearly all the social media platforms and Happy Learning !</p>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://twitter.com/urshop_in" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/company/urshop-in/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/urshop.in" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; UrShop 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

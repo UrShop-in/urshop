@@ -1087,7 +1087,7 @@ footer
 footer {
   /*margin-top: 200px;*/
   padding-top: 120px;
-  background-image: url(https://webgradients.com/public/webgradients_png/011%20Dusty%20Grass.png);
+  background-image: url("../images/footer.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
